@@ -1,0 +1,236 @@
+
+<div class="container-fluid p-0 m-0">
+  <header>
+    <div class="container-fluid main">
+      <div class="d-flex justify-content-between p-2 py-4">
+        <div>
+          <h6 class="heading">overview</h6>
+          <h1 class="main-heading">Dashboard</h1>
+        </div>
+        <div class="btnhover">
+          <button class="btn btn-primary py-2 rounded reportbtn">Create Report</button>
+        </div>
+      </div>
+    </div>
+  </header>
+  
+  <!-- Price area -->
+    <section>
+          <div class="px-3 py-4">
+            <div class="row">
+              <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3  rescol">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between ">
+                      <div>
+                        <h6 class="heading">value</h6>
+                        <div>
+                          <span class="heading-1">$24,500 </span><span class="badge badge-success badgestyle">+3.5%</span>
+                        </div>
+                      </div>
+                      <div class="pt-2">
+                        <span class="text-muted icon-size">$</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+  
+              <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3 rescol">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between ">
+                      <div>
+                        <h6 class="heading">total hours</h6>
+                        <div>
+                          <span class="heading-1">763.5 </span>
+                        </div>
+                      </div>
+                      <div class="pt-2">
+                        <span class="text-muted icon-size"><i class='fas fa-briefcase-medical text-muted' style='font-size:20px'></i></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+  
+              <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3 rescol">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between ">
+                      <div>
+                        <h6 class="heading">EXIT %</h6>
+                        <div>
+                          <span class="heading-1">35.5% </span>
+                        </div>
+                      </div>
+                      <div class="pt-2">
+                        <span class="text-muted">
+                          <img src="../assets/charts-with-line.png" alt="" width="85px" height="40px">
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+  
+              <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3 rescol">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between ">
+                      <div>
+                        <h6 class="heading">AVG. TIME</h6>
+                        <div>
+                          <span class="heading-1">2:37 </span> 
+                        </div>
+                      </div>
+                      <div>
+                        <i class='far fa-clock text-muted' style='font-size:20px; padding-top: 14px;'></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    </section>
+    <!-- Price area end-->
+  
+    <!-- Charts -->
+    <section>
+      <app-chart></app-chart>
+    </section>
+    <!-- Charts end -->
+
+    <!--Goals area -->
+    <section class="px-3 py-4">
+      <div class="card shadow-lg">
+        <div class="card-header">
+          <div class="d-flex justify-content-between">
+            <div style="font-weight: 500; font-size: 0.9rem;">Goals</div>
+            <div>
+              <button class="btn btn-sm bg-white exportbtn">Export</button>
+            </div>
+          </div>
+        </div>
+        <!-- table -->
+        <div class="table-responsive">
+          <table class="table table-sm mb-0 px-3">
+            <thead>
+              <tr>
+                <th class="px-4">GOAL</th>
+                <th class="px-4">STATUS</th>
+                <th class="px-4">PROGESS</th>
+                <th class="px-4">DUE DATE</th>
+                <th class="px-4">TEAM</th>
+                <th class="px-4"></th>
+              </tr>
+            </thead>
+            <tbody >
+              <tr *ngFor="let data of tabledata" style="letter-spacing: 0.6px;">
+                <td class="py-3 px-4">{{data.goal}}</td>
+                <td class="py-3 px-4"> <span class="pr-1" [ngClass]="{'yellow':data.status == 'In progress', 'green': data.status == 'Completed', 'red':data.status == 'Cancelled'}">●</span>{{data.status}}</td>
+                <td class="py-3 px-4">{{data.progress}}</td>
+                <td class="py-3 px-4">{{data.due}}</td>
+                <td class="py-3 px-4">
+                  <div class="d-flex">
+                    <img [src]="img" alt="" class="rounded-circle teamimages text-left" *ngFor="let img of data.team">
+                  </div>
+                </td>
+                <td class="py-3">
+                  <div class="dropdown">
+                    <div class="dropdown-toggle" data-toggle="dropdown">
+                      <i class='fas fa-ellipsis-v text-muted'></i>
+                    </div>
+                    <div class="dropdown-menu" style="font-size: 12.8px; color:  #a6b5ca;">
+                      <a class="dropdown-item" href="#">Action</a>
+                      <a class="dropdown-item" href="#">Another Action</a>
+                      <a class="dropdown-item" href="#">Another Action</a>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        </div>
+    </section>
+    <!--Goals area end-->
+
+    <!-- Check list & recent activity -->
+    <section class="px-3 py-4">
+      <div class="row">
+        <div class="col-sm-4 col-md-5 col-lg-4">
+          <div class="card shadow-lg">
+            <div class="card-header">
+              <div class="d-flex justify-content-between">
+                <div style="font-weight: 500; font-size: 0.9rem;">Recent Activity</div>
+                <div>
+                  <span class="viewall">View all</span>
+                </div>
+              </div>
+            </div>
+            <div class="card-body p-3">
+              <div class="d-flex py-2">
+                <div class="pr-4">
+                  <img src="../assets/avatar-1.jpg" alt="" class="rounded-circle recent-active">
+                </div>  
+                  <div>
+                    <h6 class="active-heading p-0 m-0">Dianna Smiley</h6>
+                    <p class="text-muted active-data p-0 m-0">Uploaded the files "Launchday Logo" and "New Design".</p>
+                    <span class="active-time text-muted">2m ago</span>
+                  </div>
+              </div>
+              <div class="d-flex py-2">
+                <div class="pr-4">
+                  <img src="../assets/avatar-2.jpg" alt="" class="rounded-circle recent-active">
+                </div>
+                <div>
+                  <h6 class="active-heading p-0 m-0">Ab Hadley</h6>
+                  <p class="text-muted active-data p-0 m-0">Shared the "Why Dashkit?" post with 124 subscribers.</p>
+                  <span class="active-time text-muted">1h ago</span>
+                </div>
+              </div>
+              <div class="d-flex py-2">
+                <div class="pr-4">
+                  <img src="../assets/avatar-3.jpg" alt="" class="rounded-circle recent-active">
+                </div>
+                <div>
+                  <h6 class="active-heading p-0 m-0">Adolfo Hess</h6>
+                  <p class="text-muted active-data p-0 m-0">Exported sales data from Launchday's subscriber data.</p>
+                  <span class="active-time text-muted">3h ago</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-8 col-md-7 col-lg-8" style="margin-top: -20px;">
+          <div class="card shadow-lg checklist-responsive" style="height: 100%;">
+            <div class="card-header">
+              <div class="d-flex justify-content-between">
+                <div style="font-weight: 500; font-size: 0.9rem;">Scratchpad Checklist</div>
+                <div>
+                  <span class="badge badge-secondary badgestyle-1">23 Archived</span>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <div *ngFor="let checklist of checklistData; let i = index" class="px-4 py-1">
+                <input class="form-check-input checkstyle" type="checkbox" (input)="changelist(i)">
+                <span class="checkliststyle pl-1" [ngClass]="{'strikeoftext': checklist.isSelected}">{{checklist.label}}</span>
+              </div>
+            </div>
+            <div class="card-footer bg-white">
+              <div class="d-flex justify-content-between">
+                <input type="texr" value="" placeholder="Create a Task" class="border border-0">
+                <div>
+                  <button class="btn btn-sm btn-primary">Add</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Check list & recent activity end-->
+</div>

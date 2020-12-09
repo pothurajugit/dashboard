@@ -1,0 +1,98 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-8">
+            <div class="card" style="height: 95%;">
+                <div class="card-header bg-white p-3 px-4">
+                    <div class="d-flex justify-content-between flex-wrap">
+                        <div class="header-project">
+                            <span>Conversions</span>
+                        </div>
+                        <div class="header-project text-muted">
+                            <span>Last year comparision: <label class="switch">
+                                <input type="checkbox">
+                                <span class="slider round"></span>
+                              </label>
+                              </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-3 px-4">
+                    <canvas id="c"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card" style="height: 95%;">
+                <div class="card-header bg-white p-3 px-4">
+                    <div class="d-flex justify-content-between">
+                        <div class="header-project">
+                            <span>Traffic Channels</span>
+                        </div>
+                        <div class="viewall">
+                            <span class="pr-3">All</span>
+                            <span>Direct</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="py-3" style="margin-top: 30px;">
+                    <canvas id="doughnut"></canvas>
+                </div>
+                  <div>
+                      <div class="d-flex justify-content-between px-5 py-5">
+                          <span><span class="charticon-1">●</span> <span class="doughnutcntent">Direct</span></span>
+                          <span><span class="charticon-2">●</span><span class="doughnutcntent">Organic</span></span>
+                          <span><span class="charticon-2">●</span><span class="doughnutcntent">Referral</span></span>
+                      </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row py-4">
+        <div class="col-sm-3 col-md-5 col-lg-3">
+            <div class="card" style="height: 100%;">
+                <div class="card-header px-4 bg-white">
+                    <div class="d-flex justify-content-between">
+                        <span class="header-project">Projects</span>
+                        <span class="viewall">View all</span>
+                    </div>
+                </div>
+                <div class="card-body" *ngFor="let projectdata of projectsData">
+                    <div class="pb-4" id="project-border">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <img [src]="projectdata.image" alt="" class="rounded projectimages" >
+                            </div>
+                            <div>
+                                <h4 class="project-name">{{projectdata.projectname}}</h4>
+                                <span class="text-muted updatedtime">{{projectdata.updatedtime}}</span>
+                            </div>
+                            <div>
+                                <i class='fas fa-ellipsis-v text-muted pr-2 ' style="font-size: 0.9rem;"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-9 col-lg-9 col-md-7">
+            <div class="card traffic">
+                <div class="card-header bg-white p-3 px-4">
+                    <div class="d-flex justify-content-between">
+                        <div class="header-project">
+                            <span>Traffic Channels</span>
+                        </div>
+                        <div class="viewall">
+                            <span class="pr-3">All</span>
+                            <span class="pr-3">Direct</span>
+                            <span>Organic</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-3 px-4">
+                    <canvas id="line"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

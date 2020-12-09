@@ -1,0 +1,14 @@
+body{
+    background-color: #f9fbfd;
+    /* font-family: "Cerebri Sans",sans-serif; */
+    height: 100vh;
+}
+.card {
+    border-color: #edf2f9 !important;
+}
+.viewall {
+    color: #2c7be5;
+    font-size: .8125rem;
+    font-weight: 400;
+    cursor: pointer;
+}
